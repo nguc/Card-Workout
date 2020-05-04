@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Card Workout!</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1>Card Workout</h1>
+
+    <div class="draw-input">
+        <label for="cards-to-draw">How many cards do you want to draw?</label>
+        <input type="number" id="cards-to-draw" name="cards-to-draw" value="20" min="20" max="52">
+        <button id="draw" value="Draw" onclick="draw()">Draw!</button>
+    </div>
+
+    <div class="card-image">
+        <img id="flipped-card" src="img/card-back.png" alt="Back of card">
+    </div>
+
+    <div class="exercises-info">
+        <div class="aces suit">
+            <p>Ace - Rest 2 minutes!</p>
+        </div>
+
+
+        <div class="spades suit">
+            <p>Spades - Push</p>
+            <ol>
+                <li>Push up or incline pushups</li>
+                <li>Pike push ups or vertical pushups</li>
+                <li>Standing dumbbell press</li>
+                <li>Lateral raises or timed doorway later holds (eg. 16 reps = 16 sec)</li>
+            </ol>
+
+        </div>
+        <div class="clubs suit">
+            <p>Clubs - Pull</p>
+            <ol>
+                <li>Pull ups</li>
+                <li>Inverted row or dumbbell row</li>
+                <li>Rear delt flyes</li>
+                <li>Upright row</li>
+            </ol>
+        </div>
+        <div class="hearts suit">
+            <p>Hearts - Legs </p>
+            <ol>
+                <li>Walking lunges</li>
+                <li>Bulgarian split squat</li>
+                <li>Single leg hip thrust</li>
+                <li>Nordic ham curl</li>
+            </ol>
+
+        </div>
+        <div class="diamonds suit">
+            <p>Diamonds - Isolation </p>
+            <ol>
+                <li>Biceps: weighted curl or weightless flex curls</li>
+                <li>Triceps: Single arm side push up or skullcrushers</li>
+                <li>Abs: Bicycle crunch or reverse crunch</li>
+                <li>Calves: Standing calf raise</li>
+            </ol>
+
+        </div>
+
+
+
+    </div>
+
+    <script src="cardFlip.js"></script>
+
+</body>
+
+</html>
