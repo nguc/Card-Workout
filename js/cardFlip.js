@@ -16,30 +16,34 @@ var DECK = [
     "KH", "KD", "KC", "KS",
 ]
 
-var WORKOUT_DECK;
-var cardsDrawn = 0;
+var WORKOUT_DECK = {
+    deck: [],
+    initialCount: 20,
+};
 
-function draw() {
 
+function drawWorkoutDeck() {
+    getInitialCount();
+    drawDeck(WORKOUT_DECK.initialCount);
+    changeActionButtons();
+}
 
-    var numberToDraw = document.getElementById("cards-to-draw").value;
-    drawCards(numberToDraw);
+function getInitialCount() {
+    WORKOUT_DECK.initialCount = document.getElementById("cards-to-draw").value;
+}
 
-    if (cardsDrawn - 1 != 0 && numberToDraw > 0) {
-        document.getElementById("cards-to-draw").value--;
-        firstCard = false;
-    }
+function changeActionButtons() {
+    document.getElementById("draw").style.display = "none";
+    document.getElementById("flip").style.display = "inline";
+    document.getElementById("reset").style.display = "inline";
 
 }
 
-// document.getElementById("draw").onclick = function () {
-//     alert("drawing!");
-// };
 // This draws the indicated number of cards from the top of a shuffled deck
-function drawCards(number) {
+function drawDeck(number) {
     var shuffledDeck = shuffle(DECK);
-    WORKOUT_DECK = shuffledDeck.slice(0, number);
-    flipCard();
+    WORKOUT_DECK.deck = shuffledDeck.slice(0, number);
+    document.getElementById("flipped-card").src = "img/Card Faces/" + WORKOUT_DECK.deck[0] + ".png";
 }
 
 // Fisher-Yates shuffle algorithm
@@ -59,10 +63,18 @@ function shuffle(array) {
 }
 
 function flipCard() {
+    if (WORKOUT_DECK.deck.length > 0) {
+        document.getElementById("flipped-card").src = "img/Card Faces/" + WORKOUT_DECK.deck.pop() + ".png";
+        document.getElementById("cards-to-draw").value = WORKOUT_DECK.deck.length;
+    }
 
-    if (cardsDrawn >= WORKOUT_DECK.length)
-        return;
+}
 
-    document.getElementById("flipped-card").src = "img/Card Faces/" + WORKOUT_DECK[cardsDrawn] + ".png";
-    cardsDrawn++;
+function reset() {
+    document.getElementById("flipped-card").src = "img/card-back.png";
+    document.getElementById("cards-to-draw").value = WORKOUT_DECK.initialCount;
+
+    document.getElementById("draw").style.display = "inline";
+    document.getElementById("flip").style.display = "none";
+    document.getElementById("reset").style.display = "none";
 }

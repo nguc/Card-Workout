@@ -36,10 +36,17 @@ p {
     max-width: 800px;
 }
 
+
 .draw-input>label {
     font-size: 1.25rem;
     font-family: inherit;
     margin: 10px auto;
+}
+
+.reload-arrow {
+    background: inherit;
+    width: 48%;
+    height: 48%;
 }
 
 .draw-input>input {
@@ -55,11 +62,30 @@ p {
     border-radius: 5px;
 }
 
-.draw-input>button {
+.buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons.draw {
+    display: inline;
+}
+
+.buttons.flip {
+    display: none;
+}
+
+
+
+.buttons {
+    margin: 10px 5px;
     padding: 8px 16px;
     font-size: 1.25rem;
     font-family: inherit;
-    margin: 5px auto;
+    color: inherit;
+    text-align: center;
+    width: 120px;
 }
 
 input[type=number]::-webkit-inner-spin-button,

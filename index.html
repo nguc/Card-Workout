@@ -10,10 +10,32 @@
 <body>
     <h1>Card Workout</h1>
 
+    <div class="how-to">
+        <h2>How the workout works</h2>
+        <p>The suit and the number of each card determine the exercise you will perform and the number of reps.<br>
+            If your card is a SPADE, you will be performing a PUSH exercise<br>
+            If your card is a CLUB, you will be performing a PULL exercise<br>
+            If your card is a HEART, you will be performing a LEGS exercise<br>
+            If your card is a DIAMOND, you will be performing an ISOLATION exercise<br>
+            To determine how many reps you will perform and the rest you may take between sets, follow these
+            guidelines:<br>
+            • The number of reps you perform is the card number, PLUS 10<br>
+            • If you have a face card (jack, queen and king), you must perform 20 reps<br>
+            • If you have an ace card, take 2 minutes of rest (NOTE: Do not take rest between card draws, unless you
+            turn over an ace)</p>
+    </div>
+
     <div class="draw-input">
         <label for="cards-to-draw">How many cards do you want to draw?</label>
         <input type="number" id="cards-to-draw" name="cards-to-draw" value="20" min="20" max="52">
-        <button id="draw" value="Draw" onclick="draw()">Draw!</button>
+        <div class="buttons-container">
+            <button class="buttons draw" id="draw" value="Draw" onclick="drawWorkoutDeck()">Draw!</button>
+            <button class="buttons flip" id="flip" value="Flip" onclick="flipCard()">Flip</button>
+            <button class="buttons flip reload" id="reset" type="submit" value="Reset" onclick="reset()">
+                <img class="reload-arrow" src="img/reload.png" />
+            </button>
+        </div>
+
     </div>
 
     <div class="card-image">
